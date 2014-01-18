@@ -1,3 +1,23 @@
+# A well formed git commit message should be within 72 columns for a few reasons:
+# 
+# (From http://tbaggery.com/2008/04/19/a-note-about-git-commit-messages.html)
+#
+# -- git log doesn’t do any special special wrapping of the commit
+#    messages. With the default pager of less -S, this means your paragraphs
+#    flow far off the edge of the screen, making them difficult to read. On
+#    an 80 column terminal, if we subtract 4 columns for the indent on the
+#    left and 4 more for symmetry on the right, we’re left with 72
+#    columns.
+# -- git format-patch --stdout converts a series of commits to a series of
+#    emails, using the messages for the message body. Good email netiquette
+#    dictates we wrap our plain text emails such that there’s room for a
+#    few levels of nested reply indicators without overflow in an 80 column
+#    terminal. (The current rails.git workflow doesn’t include email, but
+#    who knows what the future will bring.)
+#
+# This script looks at each commit that is about to be pushed and adds new 
+# line characters as necessary.
+
 #!/bin/sh
 
 if [ "$GITAUTOWRAP" = "true" ]; then
