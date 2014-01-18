@@ -1,0 +1,6 @@
+#!/bin/sh
+
+if [ "$GITAUTOWRAP" = "true" ]; then
+	exec < /dev/tty
+	.git/hooks/auto-wrap-72-char.py $1
+fi
