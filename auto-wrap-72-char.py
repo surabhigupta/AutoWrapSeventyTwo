@@ -2,7 +2,6 @@
 
 import sys
 
-message_file = sys.argv[1]
 debug = False
 
 def wrapCommitMessageTo72CharsPerLine(message):
@@ -58,12 +57,27 @@ def replaceWhiteSpaceWithNewLine(commit_Message, position) :
     
     return result
 
-#Process original commit message
-with open(message_file) as originalCommit:
-    formatted_commit_msg = wrapCommitMessageTo72CharsPerLine(originalCommit)
+# 
+# Begin main method
+#
 
-#Write formatted commit message
-with open(message_file, 'w') as formattedMessageFile:
-    formattedMessageFile.write(formatted_commit_msg)
+def main(args) :
+    message_file = args[1]
+    #Process original commit message
+    with open(message_file) as originalCommit:
+        formatted_commit_msg = wrapCommitMessageTo72CharsPerLine(originalCommit)
 
+    #Write formatted commit message
+    with open(message_file, 'w') as formattedMessageFile:
+        formattedMessageFile.write(formatted_commit_msg)
 
+#
+# End main method
+#
+
+if __name__ == '__main__':
+    try :
+        main(sys.argv)
+    except Exception as e:
+        print("Something bad happened while executing the main() method")
+        sys.exit(1)

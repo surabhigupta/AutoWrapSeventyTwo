@@ -3,7 +3,8 @@ AutoWrap
 
 A Git Commit hook for automatically wrapping all commit messages to 72 characters
 
-Step 1) Copy the script auto-wrap-72-char.py to <Your Git Repo>/.git/hooks
+Step 1) Copy the script auto-wrap-72-char.py to <Your Git Repo>/.git/hooks.
+
 Step 2) Add the following lines to <Your Git Repo>/.git/hooks/commit-msg.sample:
 
 ```bash
