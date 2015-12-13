@@ -63,6 +63,9 @@ def wrapCommitMessageToAMaxWidth(originalMessage, maxWidth=72, linesep='\n'):
         characterCountSinceNewLine = 0
         lastWhiteSpace = 0
         commit_msg.append(line)
+        
+        if line.startswith("#"):
+            continue
 
         for index, ch in enumerate(line):
             characterCountSinceNewLine += 1
