@@ -96,7 +96,8 @@ def main(args):
         formatted_commit_msg = wrapCommitMessageToAMaxWidth(originalCommit)
 
     #Write formatted commit message
-    with codecs.open(message_file, 'wb', encoding='utf-8') as f
+    with codecs.open(message_file, 'wb', encoding='utf-8') as formattedMessageFile:
+        formattedMessageFile.write(formatted_commit_msg)
 
 #
 # End main method
